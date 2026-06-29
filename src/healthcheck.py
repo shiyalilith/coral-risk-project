@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 from pathlib import Path
 
 REQUIRED_PACKAGES = [
@@ -24,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "raw" / "noaaSSTcoralData.nc"
 PIPELINE_FILE = ROOT / "src" / "train.py"
 NOTEBOOK_FILE = ROOT / "notebooks" / "exploration.ipynb"
+PROJECT_VENV_PYTHON = ROOT / ".venv" / "bin" / "python"
 
 
 def is_installed(module: str) -> bool:
@@ -32,6 +34,16 @@ def is_installed(module: str) -> bool:
 
 def main() -> int:
     failed = False
+
+    print("== Python Environment ==")
+    print(f"Executable: {sys.executable}")
+    print(f"Version: {sys.version.split()[0]}")
+    if PROJECT_VENV_PYTHON.exists():
+        using_project_venv = Path(sys.executable).resolve() == PROJECT_VENV_PYTHON.resolve()
+        print(
+            f"[{'OK' if using_project_venv else 'WARN'}] project virtualenv: "
+            f"{'active' if using_project_venv else f'available at {PROJECT_VENV_PYTHON.relative_to(ROOT)}'}"
+        )
 
     print("== Dependency Check ==")
     for module in REQUIRED_PACKAGES:

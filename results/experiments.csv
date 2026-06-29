@@ -1,0 +1,32 @@
+
+
+experiment,data_range,features,shift,ROC,notes
+baseline,2018-2024,final_features,0,0.918,clean pipeline
+shift_1C,2018-2024,final_features,+1,0.843,robust under shift
+shift_0.5C,2018-2024,final_features,+0.5,0.887,slight degradation
+shift_2C,2018-2024,final_features,+2,0.602,strong degradationrun_20260504_133117,2018-2024,final_features,+2,0.928,auto-logged
+# first run after fixing leakage, 0
+ROC-AUC: 0.6995
+Confusion Matrix:
+[[330  73]
+ [108  76]]
+# second run after fixing leakage: modeling learning on patterns
+ROC-AUC: 0.8213129787463588
+ROC-AUC (+0°C): 0.822377319699183
+#run with +0.5
+ROC-AUC: 0.8213129787463588
+ROC-AUC (+0.5°C): 0.7623557390506543
+2026-05-04 15:35:14.226 python[16345:12574201] +[IMKClient subclass]: chose IMKClient_Modern
+2026-05-04 15:35:14.226 python[16345:12574201] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+#run with +1
+ROC-AUC: 0.8213129787463588
+ROC-AUC (+1.0°C): 0.6092043399638336
+2026-05-04 15:38:43.402 python[16759:12577708] +[IMKClient subclass]: chose IMKClient_Modern
+2026-05-04 15:38:43.402 python[16759:12577708] +[IMKInputSession subclass]: chose IMKInputSession_Modernrun_20260506_135026,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
+run_20260506_135543,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
+run_20260506_135629,2016-01-01_2024-04-17,"hotspot,DHW,DHW_lag7,DHW_lag14,temp_change,temp_acceleration",1.0,0.695,auto-logged
+run_20260506_135730,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
+run_20260506_135915,2016-01-01_2024-04-17,"SST,SST_lag1,SST_lag7,SST_lag14,hotspot,DHW,temp_change,temp_acceleration,rolling_mean_30,rolling_std_30",1.0,0.598,auto-logged
+run_20260506_140845,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
+run_20260527_142432,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
+run_20260528_221526,2016-01-01_2024-04-17,"hotspot,DHW,temp_change,temp_acceleration",1.0,0.707,auto-logged
